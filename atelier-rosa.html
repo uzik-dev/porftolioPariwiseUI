@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Atelier Rosa — Social media kit</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbf5f1;--card:#fff;--ink:#3a1f2b;--mute:#8a6b78;--line:#ecd9d4;
+--p1:#d98ba2;--p2:#f6d6dd;--p3:#7a2c4a;
+--serif:"Cormorant Garamond",Georgia,serif;--sans:"Jost",system-ui,sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1d1217;--card:#2a1a22;--ink:#f8e9ee;--mute:#c9a5b3;--line:#442a35}}
+:root[data-theme="dark"]{--bg:#1d1217;--card:#2a1a22;--ink:#f8e9ee;--mute:#c9a5b3;--line:#442a35}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.05rem/1.65 var(--sans);overflow-x:hidden}
+:focus-visible{outline:2px solid var(--p3);outline-offset:3px}
+header{display:flex;justify-content:space-between;align-items:center;padding:20px clamp(18px,5vw,56px);max-width:1200px;margin:0 auto}
+.logo{font:600 1.7rem var(--serif);font-style:italic;letter-spacing:-.01em}
+.hero{max-width:1200px;margin:0 auto;padding:clamp(30px,6vw,80px) clamp(18px,5vw,56px);display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+h1{font:500 clamp(2.6rem,6.5vw,5.4rem)/.98 var(--serif);letter-spacing:-.03em;margin:0 0 20px}
+h1 em{color:var(--p3)}
+.hero p{color:var(--mute);max-width:40ch}
+.swatches{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px;align-items:center}
+.swatches span{color:var(--mute);font-size:.95rem}
+.sw{width:44px;height:44px;border-radius:50%;border:3px solid var(--card);cursor:pointer;box-shadow:0 0 0 1px var(--line);transition:transform 100ms ease-out;padding:0}
+.sw:active{transform:scale(.9)}.sw[aria-pressed="true"]{box-shadow:0 0 0 3px var(--ink)}
+.feed{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;background:var(--card);padding:12px;border-radius:24px;border:1px solid var(--line);box-shadow:0 30px 60px rgba(58,31,43,.12)}
+.tile{aspect-ratio:1;border-radius:10px;padding:12px;display:flex;flex-direction:column;justify-content:flex-end;font:600 clamp(.95rem,2.4vw,1.3rem)/1.05 var(--serif);overflow:hidden;position:relative;transition:background .5s,color .5s}
+.tile small{font:500 .62rem var(--sans);letter-spacing:.06em;opacity:.8;margin-top:4px}
+.t-a{background:var(--p1);color:#fff}.t-b{background:var(--p2);color:var(--p3)}.t-c{background:var(--p3);color:var(--p2)}
+.t-d{background:var(--p2);color:var(--p3)}.t-e{background:var(--p3);color:#fff}.t-f{background:var(--p1);color:#fff}
+.t-g{background:var(--p3);color:var(--p2)}.t-h{background:var(--p1);color:#fff}.t-i{background:var(--p2);color:var(--p3)}
+.tile .ring{position:absolute;top:-30%;right:-30%;width:80%;aspect-ratio:1;border-radius:50%;border:10px solid currentColor;opacity:.25}
+.tile .dot{position:absolute;top:10px;left:10px;width:22px;height:22px;border-radius:50%;background:currentColor;opacity:.35}
+section{max-width:1200px;margin:0 auto;padding:clamp(40px,7vw,80px) clamp(18px,5vw,56px)}
+h2{font:500 clamp(2rem,4.5vw,3.3rem)/1 var(--serif);letter-spacing:-.03em;margin:0 0 22px}
+.kit{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:16px}
+.k{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px}
+.k h3{font:600 1.5rem var(--serif);margin:0 0 6px}.k p{color:var(--mute);margin:0;font-size:.98rem}
+.k .n{display:inline-block;background:var(--p2);color:var(--p3);border-radius:999px;padding:3px 12px;font-size:.82rem;font-weight:500;margin-bottom:12px}
+footer{text-align:center;padding:40px 20px calc(40px + env(safe-area-inset-bottom,0px));color:var(--mute);font-size:.9rem}
+@media(max-width:800px){.hero{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.tile{transition:none}html{scroll-behavior:auto}}
+</style></head><body>
+<header><div class="logo">Atelier Rosa</div></header>
+<div class="hero"><div><h1>One look, <em>every</em> post.</h1><p>A Canva social media kit for a fashion boutique: templates, colors, and a posting rhythm the whole team can follow. Pick a palette and watch the feed change.</p>
+<div class="swatches" role="group" aria-label="Palette"><span>Palette</span>
+<button class="sw" aria-label="Rose" data-p="#d98ba2,#f6d6dd,#7a2c4a" style="background:linear-gradient(135deg,#d98ba2 50%,#7a2c4a 50%)" aria-pressed="true"></button>
+<button class="sw" aria-label="Sage" data-p="#8fae8b,#e2ecdd,#2f4a35" style="background:linear-gradient(135deg,#8fae8b 50%,#2f4a35 50%)" aria-pressed="false"></button>
+<button class="sw" aria-label="Sand" data-p="#c99a63,#f1e2cc,#5a3a1c" style="background:linear-gradient(135deg,#c99a63 50%,#5a3a1c 50%)" aria-pressed="false"></button>
+<button class="sw" aria-label="Ink" data-p="#6c7ac9,#dfe3fa,#1f2557" style="background:linear-gradient(135deg,#6c7ac9 50%,#1f2557 50%)" aria-pressed="false"></button></div></div>
+<div class="feed" role="img" aria-label="Sample Instagram grid in the chosen palette">
+<div class="tile t-a"><span class="dot"></span>New in<small>SPRING EDIT</small></div>
+<div class="tile t-b"><span class="ring"></span>Soft<br>tailoring</div>
+<div class="tile t-c">Sale<br>ends Sunday</div>
+<div class="tile t-d">Styled<br>3 ways</div>
+<div class="tile t-e"><span class="ring"></span>Meet the<br>maker</div>
+<div class="tile t-f"><span class="dot"></span>Linen<br>season</div>
+<div class="tile t-g">Behind<br>the seams</div>
+<div class="tile t-h">Gift<br>cards</div>
+<div class="tile t-i"><span class="ring"></span>Open<br>late Fri</div></div></div>
+<section><h2>What’s in the kit</h2><div class="kit">
+<div class="k"><span class="n">12 templates</span><h3>Feed posts</h3><p>Announcements, product drops, quotes and sales, all editable in Canva.</p></div>
+<div class="k"><span class="n">8 templates</span><h3>Stories</h3><p>Polls, countdowns and outfit-of-the-day frames that match the grid.</p></div>
+<div class="k"><span class="n">1 page</span><h3>Brand guide</h3><p>Colors, fonts and logo rules so any team member posts on brand.</p></div>
+<div class="k"><span class="n">4 weeks</span><h3>Content calendar</h3><p>A simple posting rhythm to build a community, not just followers.</p></div></div></section>
+<footer>Concept project by PairwiseUI — a sample kit, not a real boutique.</footer>
+<script>
+document.querySelectorAll(".sw").forEach(function(b){b.addEventListener("click",function(){
+var c=b.dataset.p.split(","),r=document.documentElement.style;r.setProperty("--p1",c[0]);r.setProperty("--p2",c[1]);r.setProperty("--p3",c[2]);
+document.querySelectorAll(".sw").forEach(function(x){x.setAttribute("aria-pressed",x===b)})})});
+</script></body></html>
