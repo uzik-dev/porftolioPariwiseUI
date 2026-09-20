@@ -1,74 +1,96 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Northwind Fitness — Train with a crew</title>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<title>Northwind Fitness — Train like it counts</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f3f5f7;--card:#fff;--ink:#0d1622;--mute:#5b6878;--blue:#1f5cff;--lime:#c9ff3d;--line:#d9e0e8;
---head:"Archivo","Arial Narrow",system-ui,sans-serif;--body:"Inter",system-ui,sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-:root:not([data-theme="light"]){}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b111a;--card:#131c29;--ink:#eef3f9;--mute:#94a3b8;--line:#243044}}
-:root[data-theme="dark"]{--bg:#0b111a;--card:#131c29;--ink:#eef3f9;--mute:#94a3b8;--line:#243044}
+:root{color-scheme:dark;--bg:#0b0b0b;--ink:#f4f4ef;--lime:#d4ff2a;--line:#2b2b2b;--mute:#9b9b94;
+--head:"Anton","Impact","Arial Narrow",sans-serif;--body:"Barlow",system-ui,sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
 *,*::before,*::after{box-sizing:inherit}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.6 var(--body);overflow-x:hidden}
-a{color:inherit}:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
-header{display:flex;justify-content:space-between;align-items:center;padding:16px clamp(18px,5vw,56px);max-width:1200px;margin:0 auto}
-.logo{font:900 1.4rem var(--head);font-stretch:125%;letter-spacing:-.04em;text-decoration:none}
-.logo i{color:var(--blue);font-style:normal}
-.hero{max-width:1200px;margin:0 auto;padding:clamp(30px,7vw,90px) clamp(18px,5vw,56px)}
-h1{font:900 clamp(3rem,11vw,9rem)/.86 var(--head);font-stretch:110%;letter-spacing:-.05em;margin:0 0 26px;text-transform:uppercase}
-h1 span{background:var(--lime);color:#0d1622;padding:0 .12em;border-radius:.08em}
-.hero p{max-width:46ch;color:var(--mute);font-size:1.15rem}
-.btn{display:inline-block;background:var(--blue);color:#fff;padding:14px 28px;border-radius:12px;text-decoration:none;font-weight:600;border:0;cursor:pointer;font:inherit;font-weight:600;transition:transform 100ms ease-out}
-.btn:active{transform:scale(.96)}
-section{max-width:1200px;margin:0 auto;padding:clamp(40px,7vw,80px) clamp(18px,5vw,56px)}
-h2{font:800 clamp(1.8rem,4.5vw,3.2rem)/1 var(--head);letter-spacing:-.04em;margin:0 0 24px}
-.days{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:20px}
-.days button{flex:0 0 auto;font:inherit;font-weight:600;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 18px;cursor:pointer;transition:transform 100ms ease-out}
-.days button:active{transform:scale(.94)}
-.days button[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.classes{display:grid;gap:12px}
-.cls{display:grid;grid-template-columns:90px 1fr auto;gap:18px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 22px}
-.cls time{font:800 1.3rem var(--head)}
-.cls h3{margin:0;font:700 1.15rem var(--head)}.cls p{margin:0;color:var(--mute);font-size:.92rem}
-.book{font:inherit;font-weight:600;border:2px solid var(--blue);color:var(--blue);background:none;border-radius:10px;padding:8px 18px;cursor:pointer;min-width:112px;transition:transform 100ms ease-out,background .2s}
-.book:active{transform:scale(.95)}
-.book[aria-pressed="true"]{background:var(--lime);border-color:var(--lime);color:#0d1622}
-.book:disabled{opacity:.45;cursor:not-allowed;border-color:var(--line);color:var(--mute)}
-.bill{display:inline-flex;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:4px;margin-bottom:24px}
-.bill button{font:inherit;font-weight:600;background:none;border:0;color:var(--ink);padding:8px 20px;border-radius:9px;cursor:pointer}
-.bill button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
-.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:16px}
-.plan{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px}
-.plan.hot{background:var(--blue);color:#fff;border-color:var(--blue)}
-.plan h3{font:800 1.2rem var(--head);margin:0 0 8px}
-.plan .pr{font:900 3rem var(--head);letter-spacing:-.05em}.plan .pr small{font:500 1rem var(--body);opacity:.7}
-.plan ul{padding-left:18px;margin:14px 0 0;color:inherit;opacity:.85}
-footer{text-align:center;padding:40px 20px calc(40px + env(safe-area-inset-bottom,0px));color:var(--mute);font-size:.9rem}
-#msg{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,120px);background:var(--ink);color:var(--bg);padding:12px 22px;border-radius:12px;font-weight:600;transition:transform .35s cubic-bezier(.2,.9,.3,1.2)}
+body{margin:0;background:var(--bg);color:var(--ink);font:500 1.0625rem/1.5 var(--body);overflow-x:hidden}
+a{color:inherit}:focus-visible{outline:3px solid var(--lime);outline-offset:3px}
+.tick{background:var(--lime);color:#0b0b0b;overflow:hidden;font:400 1rem/1 var(--head);letter-spacing:.06em;text-transform:uppercase}
+.tick div{display:flex;width:max-content;animation:t 26s linear infinite;padding:10px 0}
+.tick span{padding-right:2rem;white-space:nowrap}
+@keyframes t{to{transform:translateX(-50%)}}
+nav{display:flex;justify-content:space-between;align-items:center;padding:16px clamp(16px,3vw,40px);border-bottom:1px solid var(--line)}
+.logo{font:400 1.7rem/1 var(--head);letter-spacing:.02em;text-decoration:none;text-transform:uppercase}
+.logo i{color:var(--lime);font-style:normal}
+nav .r{display:flex;gap:26px;align-items:center;text-transform:uppercase;font-weight:600;letter-spacing:.06em;font-size:.9rem}
+nav .r a{text-decoration:none}nav .r a:hover{color:var(--lime)}
+.join{background:var(--lime);color:#0b0b0b!important;padding:10px 20px;transition:transform 100ms ease-out}
+.join:active{transform:scale(.95)}
+.hero{display:grid;grid-template-columns:1fr 340px;border-bottom:1px solid var(--line)}
+.hero h1{font:400 clamp(4.5rem,19vw,19rem)/.8 var(--head);text-transform:uppercase;letter-spacing:-.01em;margin:0;padding:clamp(22px,4vw,56px) clamp(16px,3vw,40px) clamp(22px,4vw,48px)}
+.hero h1 .o{color:transparent;-webkit-text-stroke:2px var(--ink)}
+.hero h1 .l{color:var(--lime)}
+.side{border-left:1px solid var(--line);display:flex;flex-direction:column}
+.side .hatch{flex:1;min-height:120px;background:repeating-linear-gradient(115deg,var(--lime) 0 16px,#0b0b0b 16px 32px)}
+.side .st{padding:18px 22px;border-top:1px solid var(--line)}
+.side .st b{display:block;font:400 3.2rem/1 var(--head);color:var(--lime)}
+.side .st span{color:var(--mute);text-transform:uppercase;letter-spacing:.06em;font-size:.82rem}
+.intro{display:flex;justify-content:space-between;gap:20px;align-items:center;flex-wrap:wrap;padding:22px clamp(16px,3vw,40px);border-bottom:1px solid var(--line)}
+.intro p{margin:0;max-width:48ch;font-size:1.2rem}
+.big{display:inline-block;background:var(--lime);color:#0b0b0b;font:400 1.3rem/1 var(--head);letter-spacing:.05em;text-transform:uppercase;padding:16px 28px;text-decoration:none;transition:transform 100ms ease-out}
+.big:active{transform:scale(.96)}
+section{padding:clamp(40px,6vw,88px) clamp(16px,3vw,40px)}
+h2{font:400 clamp(2.6rem,8vw,7rem)/.9 var(--head);text-transform:uppercase;margin:0 0 30px}
+.sub{color:var(--mute);margin:-14px 0 28px}
+.scroll{overflow-x:auto;border:1px solid var(--line)}
+.tt{display:grid;grid-template-columns:84px repeat(5,minmax(150px,1fr));min-width:780px}
+.tt>*{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px}
+.tt .h{font:400 1.2rem var(--head);text-transform:uppercase;letter-spacing:.06em;background:#141414}
+.tt .t{font:400 1.2rem var(--head);color:var(--lime)}
+.c{background:none;color:var(--ink);text-align:left;font:inherit;cursor:pointer;display:flex;flex-direction:column;gap:2px;transition:background .15s,color .15s;border-top:0;border-left:0}
+.c strong{font:400 1.25rem/1.05 var(--head);text-transform:uppercase;letter-spacing:.02em}
+.c span{font-size:.85rem;color:var(--mute)}
+.c:hover{background:#1a1a1a}
+.c[aria-pressed="true"]{background:var(--lime);color:#0b0b0b}.c[aria-pressed="true"] span{color:#0b0b0b}
+.c:disabled{opacity:.35;cursor:not-allowed;text-decoration:line-through}
+.bill{display:inline-flex;border:1px solid var(--ink);margin-bottom:24px}
+.bill button{font:600 .9rem var(--body);text-transform:uppercase;letter-spacing:.06em;background:none;color:var(--ink);border:0;padding:12px 22px;cursor:pointer}
+.bill button[aria-pressed="true"]{background:var(--ink);color:#0b0b0b}
+.plan{display:grid;grid-template-columns:1.1fr 1fr 2fr;gap:20px;align-items:center;border-top:1px solid var(--line);padding:26px 0;transition:background .15s,color .15s,padding .3s cubic-bezier(.2,.9,.3,1)}
+.plan:last-child{border-bottom:1px solid var(--line)}
+.plan:hover{background:var(--lime);color:#0b0b0b;padding-left:20px;padding-right:20px}
+.plan h3{font:400 clamp(1.8rem,4vw,3rem)/1 var(--head);text-transform:uppercase;margin:0}
+.plan .pr{font:400 clamp(2.2rem,5vw,4rem)/1 var(--head)}.plan .pr small{font:500 .95rem var(--body)}
+.plan p{margin:0;opacity:.85}
+.end{border-top:1px solid var(--line);text-align:left;padding-bottom:clamp(30px,5vw,60px)}
+.end a{font:400 clamp(4rem,17vw,17rem)/.82 var(--head);text-transform:uppercase;text-decoration:none;color:var(--lime);display:block;transition:color .2s}
+.end a:hover{color:var(--ink)}
+footer{padding:20px clamp(16px,3vw,40px) calc(20px + env(safe-area-inset-bottom,0px));color:var(--mute);font-size:.85rem;border-top:1px solid var(--line)}
+#msg{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,140px);background:var(--lime);color:#0b0b0b;padding:13px 24px;font:400 1.1rem var(--head);text-transform:uppercase;letter-spacing:.05em;transition:transform .35s cubic-bezier(.2,.9,.3,1.2);z-index:50}
 #msg.show{transform:translate(-50%,0)}
-@media(max-width:600px){.cls{grid-template-columns:70px 1fr;}.cls .book{grid-column:1/-1}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}#msg{transition:none}}
+@media(max-width:860px){.hero{grid-template-columns:1fr}.side{border-left:0;border-top:1px solid var(--line);flex-direction:row}.side .hatch{min-height:0}.side .st{border-top:0;border-left:1px solid var(--line)}nav .r a:not(.join){display:none}.plan{grid-template-columns:1fr 1fr}.plan p{grid-column:1/-1}}
+@media(prefers-reduced-motion:reduce){.tick div{animation:none}html{scroll-behavior:auto}#msg,.plan{transition:none}}
 </style></head><body>
-<header><a class="logo" href="#">NORTH<i>WIND</i></a><a class="btn" href="#classes" style="padding:10px 20px">Book a class</a></header>
-<div class="hero"><h1>Train <span>hard.</span><br>Rest well.</h1><p>Small classes, real coaches, and a schedule that fits around your week. First class is free.</p><a class="btn" href="#classes">See this week’s classes</a></div>
-<section id="classes"><h2>Book your spot</h2><div class="days" id="days" role="tablist"></div><div class="classes" id="list"></div></section>
-<section><h2>Membership</h2><div class="bill" role="group" aria-label="Billing period"><button id="m" aria-pressed="true">Monthly</button><button id="y" aria-pressed="false">Yearly · save 20%</button></div><div class="plans" id="plans"></div></section>
+<div class="tick" aria-hidden="true"><div><span>First class free</span><span>/</span><span>No contracts</span><span>/</span><span>Coaches, not screens</span><span>/</span><span>First class free</span><span>/</span><span>No contracts</span><span>/</span><span>Coaches, not screens</span><span>/</span><span>First class free</span><span>/</span><span>No contracts</span><span>/</span><span>Coaches, not screens</span><span>/</span></div></div>
+<nav><a class="logo" href="#">North<i>wind</i></a><div class="r"><a href="#classes">Classes</a><a href="#plans">Plans</a><a class="join" href="#classes">Join</a></div></nav>
+<div class="hero"><h1>Train<br><span class="o">like</span><br>it <span class="l">counts.</span></h1>
+<div class="side"><div class="hatch"></div><div class="st"><b>14</b><span>Classes a week</span></div><div class="st"><b>08</b><span>Members per coach</span></div></div></div>
+<div class="intro"><p>Small classes. Real coaches. A schedule that fits around your week, not the other way round.</p><a class="big" href="#classes">Book your free class</a></div>
+<section id="classes"><h2>This week</h2><p class="sub">Tap a session to book it. Tap again to cancel.</p><div class="scroll"><div class="tt" id="tt"></div></div></section>
+<section id="plans"><h2>Pick a plan</h2><div class="bill" role="group" aria-label="Billing"><button id="m" aria-pressed="true">Monthly</button><button id="y" aria-pressed="false">Yearly −20%</button></div><div id="pl"></div></section>
+<section class="end"><a href="#classes">Join the crew ↗</a></section>
 <footer>Concept project by PairwiseUI — a sample website, not a real gym.</footer>
 <div id="msg" role="status"></div>
 <script>
-var days=["Mon","Tue","Wed","Thu","Fri","Sat"],C=[["06:30","Strength Basics","Coach Ana · 45 min",10],["09:00","HIIT Express","Coach Mark · 30 min",8],["12:15","Mobility Flow","Coach Ivy · 40 min",0],["18:00","Boxing Fundamentals","Coach Dani · 60 min",12],["19:30","Spin Night","Coach Leo · 45 min",6]];
-var state={d:0,booked:{}},$=function(i){return document.getElementById(i)},yearly=false;
-function toast(t){var e=$("msg");e.textContent=t;e.classList.add("show");clearTimeout(toast.t);toast.t=setTimeout(function(){e.classList.remove("show")},1800)}
-function draw(){$("days").innerHTML=days.map(function(d,i){return '<button role="tab" aria-selected="'+(i===state.d)+'" data-d="'+i+'">'+d+'</button>'}).join("");
-$("list").innerHTML=C.map(function(c,i){var k=state.d+"-"+i,full=c[3]===0,b=state.booked[k];return '<div class="cls"><time>'+c[0]+'</time><div><h3>'+c[1]+'</h3><p>'+c[2]+' · '+(full?"Full":c[3]-(b?1:0)+" spots left")+'</p></div><button class="book" data-k="'+k+'" aria-pressed="'+!!b+'"'+(full?" disabled":"")+'>'+(full?"Full":b?"Booked ✓":"Book")+'</button></div>'}).join("")}
-function plans(){var P=[["Off-peak",29,["Classes 6:00 – 16:00","Open gym access"]],["Unlimited",49,["All classes, any time","Open gym and sauna","1 guest pass a month"],1],["Duo",85,["Two members, one plan","All classes","Shared guest passes"]]];
-$("plans").innerHTML=P.map(function(p){var v=yearly?Math.round(p[1]*.8):p[1];return '<div class="plan'+(p[3]?" hot":"")+'"><h3>'+p[0]+'</h3><div class="pr">$'+v+'<small> / month</small></div><ul>'+p[2].map(function(x){return "<li>"+x+"</li>"}).join("")+'</ul></div>'}).join("")}
-document.addEventListener("click",function(e){var t=e.target;
-if(t.dataset.d!==undefined){state.d=+t.dataset.d;draw()}
-if(t.dataset.k){var k=t.dataset.k;if(state.booked[k]){delete state.booked[k];toast("Booking cancelled")}else{state.booked[k]=1;toast("You’re in. See you there!")}draw()}});
-$("m").onclick=function(){yearly=false;$("m").setAttribute("aria-pressed",true);$("y").setAttribute("aria-pressed",false);plans()};
-$("y").onclick=function(){yearly=true;$("y").setAttribute("aria-pressed",true);$("m").setAttribute("aria-pressed",false);plans()};
-draw();plans();
+var D=["Mon","Tue","Wed","Thu","Fri"],TM=["06:30","12:15","18:00","19:30"];
+var G=[[["Strength","Ana"],["HIIT","Mark"],["Strength","Ana"],["Mobility","Ivy"],["HIIT","Mark"]],
+[["Mobility","Ivy"],["Boxing","Dani"],["Mobility","Ivy"],["Boxing","Dani"],["Yoga","Ivy"]],
+[["Boxing","Dani"],["Strength","Ana"],["Spin","Leo"],["Strength","Ana"],["Spin","Leo"]],
+[["Spin","Leo"],["Boxing","Dani"],["HIIT","Mark"],["Spin","Leo"],["Full body","Ana"]]];
+var FULL={"1-3":1,"2-0":1},B={},$=function(i){return document.getElementById(i)},yr=false;
+function toast(t){var e=$("msg");e.textContent=t;e.classList.add("show");clearTimeout(toast.t);toast.t=setTimeout(function(){e.classList.remove("show")},1700)}
+function tt(){var h='<div class="h"></div>'+D.map(function(d){return '<div class="h">'+d+'</div>'}).join("");
+G.forEach(function(r,i){h+='<div class="t">'+TM[i]+'</div>'+r.map(function(c,j){var k=i+"-"+j,f=FULL[k];return '<button class="c" data-k="'+k+'" aria-pressed="'+!!B[k]+'"'+(f?" disabled":"")+'><strong>'+c[0]+'</strong><span>'+(f?"Full":B[k]?"Booked":"Coach "+c[1])+'</span></button>'}).join("")});$("tt").innerHTML=h}
+function pl(){var P=[["Off-peak",29,"Classes before 16:00. Open gym any time."],["Unlimited",49,"Every class, open gym, sauna and one guest pass a month."],["Duo",85,"Two members, one plan. Shared guest passes."]];
+$("pl").innerHTML=P.map(function(p){return '<div class="plan"><h3>'+p[0]+'</h3><div class="pr">$'+(yr?Math.round(p[1]*.8):p[1])+'<small> / month</small></div><p>'+p[2]+'</p></div>'}).join("")}
+document.addEventListener("click",function(e){var b=e.target.closest(".c");if(!b)return;var k=b.dataset.k;if(B[k]){delete B[k];toast("Cancelled")}else{B[k]=1;toast("You’re in")}tt()});
+$("m").onclick=function(){yr=false;$("m").setAttribute("aria-pressed",true);$("y").setAttribute("aria-pressed",false);pl()};
+$("y").onclick=function(){yr=true;$("y").setAttribute("aria-pressed",true);$("m").setAttribute("aria-pressed",false);pl()};
+tt();pl();
 </script></body></html>
